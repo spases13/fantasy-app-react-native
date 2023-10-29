@@ -9,10 +9,10 @@ import {
   Alert,
 } from "react-native";
 import React, { useState } from "react";
-import getStyles from "./styles/RegisterStyles";
+import getStyles from "./(styles)/styles";
 import { useColorScheme } from "react-native";
-import SubmitButton from "../components/custom/SubmitButton";
 import { Link } from "expo-router";
+import SubmitButton from "../../components/custom/SubmitButton";
 
 export const Register = () => {
   const colorScheme: any = useColorScheme();
@@ -76,10 +76,15 @@ export const Register = () => {
         />
         <SubmitButton onPress={handleSubmit} loading={loading}></SubmitButton>
         <Text style={styles.text}>
-          Already Registred ?{" "}
+          Already Registred ?
           <Link href="/Login" style={styles.link}>
             Login
           </Link>
+          <View>
+            <Link href="/" style={styles.link}>
+              HOME
+            </Link>
+          </View>
         </Text>
       </View>
     </ScrollView>
@@ -87,3 +92,7 @@ export const Register = () => {
 };
 
 export default Register;
+
+Register.navigationOptions = {
+  headerShown: false,
+};

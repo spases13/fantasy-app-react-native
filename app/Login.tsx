@@ -9,12 +9,12 @@ import {
   Alert,
 } from "react-native";
 import React, { useState } from "react";
-import getStyles from "./styles/RegisterStyles";
+import getStyles from "../_screens/styles/LoginStyles";
 import { useColorScheme } from "react-native";
 import SubmitButton from "../components/custom/SubmitButton";
 import { Link } from "expo-router";
 
-export const Register = () => {
+export const Login = () => {
   const colorScheme: any = useColorScheme();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -32,7 +32,7 @@ export const Register = () => {
         return;
       } else {
         setLoading(false);
-        console.log("Register Data =>");
+        console.log("Login Data =>");
         console.log({ username, email, password });
       }
     } catch (err: any) {
@@ -43,7 +43,7 @@ export const Register = () => {
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>Register</Text>
+      <Text style={styles.title}>Login</Text>
       <View style={styles.form}>
         {/* <Text style={styles.text}>
           {JSON.stringify({ username, email, password }, null, 4)}
@@ -76,9 +76,9 @@ export const Register = () => {
         />
         <SubmitButton onPress={handleSubmit} loading={loading}></SubmitButton>
         <Text style={styles.text}>
-          Already Registred ?{" "}
-          <Link href="/Login" style={styles.link}>
-            Login
+          Not Registred ?{" "}
+          <Link href="/" style={styles.link}>
+            Register
           </Link>
         </Text>
       </View>
@@ -86,4 +86,4 @@ export const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
